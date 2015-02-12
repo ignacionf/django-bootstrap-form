@@ -22,7 +22,7 @@ def bootstrap_inline(element):
 @register.filter
 def bootstrap_horizontal(element, label_cols={}):
     if not label_cols:
-        label_cols = 'col-sm-2 col-lg-2'
+        label_cols = config.BOOTSTRAP_LABEL_COLS
 
     markup_classes = {'label': label_cols,
             'value': '',
@@ -34,7 +34,7 @@ def bootstrap_horizontal(element, label_cols={}):
         try:
             value_nb_cols = int(splitted_class[-1])
         except ValueError:
-            value_nb_cols = config.BOOTSTRAP_COLUMN_COUNT
+            value_nb_cols =config.BOOTSTRAP_COLUMN_COUNT 
 
         if value_nb_cols >= config.BOOTSTRAP_COLUMN_COUNT:
             splitted_class[-1] = config.BOOTSTRAP_COLUMN_COUNT
